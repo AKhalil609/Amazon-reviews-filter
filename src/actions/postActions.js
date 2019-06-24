@@ -17,8 +17,13 @@ import axios from "axios";
  */
 
 export const fetchPosts = () => async dispatch => {
+  let reviews;
+  try {
+   reviews = await axios.get(`http://localhost:8010/proxy/reviews/${store.getState().posts.page}`)
+  } catch (err) {
+    console.log(err);
+  }
 
-  let reviews = await axios.get(`http://localhost:8010/proxy/reviews/${store.getState().posts.page}`)
   reviews = reviews.data;
 
   // save a copy of the prefiltered data
@@ -43,14 +48,14 @@ export const fetchPosts = () => async dispatch => {
   // reviews after begin sorted
   sortedReviews = {...originalReviews, reviews:fullReviews}
 
-  await dispatch({
+  dispatch({
     type: FETCH_POSTS,
     payload: sortedReviews,
     originalReviews,
     loading:false
   });
 
-  await dispatch({
+  dispatch({
     type: ADD_PAGE,
     payload: store.getState().posts.page + 1
   });
@@ -62,7 +67,7 @@ export const fetchPosts = () => async dispatch => {
  * @method filterStars
  * @param {number} stars - The number of stars.
  */
-export const filterStars = (stars) => async dispatch =>{
+export const filterStars = (stars) => dispatch =>{
   
   // Get all reviews from the store
   let fullReviews = [...store.getState().posts.original.reviews];
@@ -97,12 +102,12 @@ export const filterStars = (stars) => async dispatch =>{
  * @method filterDrop
  * @param {event} event - onChange event.
  */
-export const filterDrop = (event) => async dispatch =>{
+export const filterDrop = (event) => dispatch =>{
   let filter = event.target.value;
   switch (filter) {
     case "old":
     case "new":
-      await dispatch({
+      dispatch({
         type: FILTER_REVIEWS,
         payload: store.getState().posts.items.reviews.reverse(),
         order: filter
@@ -111,7 +116,7 @@ export const filterDrop = (event) => async dispatch =>{
     case "month":
     case "week":
     case "day":
-      await dispatch({
+      dispatch({
         type: GROUP_REVIEWS,
         payload: filter
       })

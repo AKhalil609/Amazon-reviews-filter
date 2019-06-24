@@ -1,4 +1,3 @@
-// import checkPropTypes from 'check-prop-types';
 import { createStore, applyMiddleware } from 'redux';
 
 import rootReducer from '../reducers';
@@ -15,11 +14,6 @@ export const storeFactory = (initialState) => {
   const createStoreWithMiddleware = applyMiddleware(...middleware)(createStore)
   return createStoreWithMiddleware(rootReducer, initialState);
 }
-
-// export const storeFactory = (initialState) =>{
-//   return createStore(rootReducer, initialState)
-// }
-
 /**
  * Return node(s) with the given data-test attribute.
  * @param {ShallowWrapper} wrapper - Enzyme shallow wrapper.

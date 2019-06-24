@@ -75,11 +75,13 @@ export const monthGroup = (date, initDate) => {
  */
 let endWeek = new Date();
 let dayWeek;
+let lastdate;
 export let weekGroup = (date, initDate) => {
   let order = store.getState().posts.order;
 
   // returns week date range if "date" has the same date of the first item
-  if (date === initDate) {
+  if (date === initDate && date !== lastdate) {
+    lastdate = date
     endWeek = new Date(initDate);
     if (order === "new") return latestWeek(date) 
     else return oldestWeek(date);
