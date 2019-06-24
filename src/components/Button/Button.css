@@ -1,0 +1,26 @@
+.btnArea{
+    /* padding-bottom: 50px;
+    width: 63%;
+    margin: 10px;
+    border-bottom-width: 50px;
+    padding-bottom: 50px; */
+    width: 44%;
+
+}
+.btn{
+    padding: 15px 40px;
+    border-radius: 100px;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    background-color: #ffffff;
+    color: black;
+    content: "";
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.btn:hover{
+    background-color: #95a5a6;
+}

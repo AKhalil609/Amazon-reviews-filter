@@ -1,0 +1,50 @@
+.rating{
+    
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+.starContainer{
+    margin-top: 28px;
+}
+
+.rating input{
+    display: none;
+}
+
+.rating label{
+    cursor: pointer;
+    width: 36px;
+    position: relative;
+    margin-top: 10px;
+
+}
+
+.rating label:before{
+    content: '\f005';
+    font-family: fontAwesome;
+    position: relative;
+    display: block;
+    font-size: 37px;
+    color: #101010;
+}
+
+.rating label:after{
+    content: '\f005';
+    font-family: fontAwesome;
+    position: absolute;
+    display: block;
+    font-size: 37px;
+    color: #FFD700;
+    top:0;
+    opacity: 0;
+    transition: 0.5s;
+    text-shadow: 0 2px 5px rgba(0,0,0,.5);
+}
+
+.rating label:hover:after,
+.rating label:hover ~ label:after,
+.rating input:checked ~ label:after{
+    opacity: 1;
+}

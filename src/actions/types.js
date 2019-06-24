@@ -1,0 +1,10 @@
+export const FETCH_POSTS = "FETCH_POSTS";
+export const NEW_POST= "NEW_POST";
+export const FETCH_JSON= "FETCH_JSON";
+export const SET_LOADING="SET_LOADING";
+export const ADD_PAGE ="ADD_PAGE";
+export const SET_WEEK = "SET_WEEK"
+export const FILTER_REVIEWS = "FILTER_REVIEWS";
+export const GROUP_REVIEWS = "GROUP_REVIEWS";
+export const FILTER_STARS = "FILTER_STARS";
+export const RESET_FILTER = "RESET_FILTER";
