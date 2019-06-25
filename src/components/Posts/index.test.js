@@ -7,8 +7,8 @@ import Posts, {UnconnectedPosts} from "./";
 const setup = (initialState = {}) => {
   const store = storeFactory(initialState);
   const wrapper = shallow(<Posts store={store} />)
-    .dive()
-    .dive();
+    .dive().dive();
+     
   return wrapper;
 };
 
@@ -31,7 +31,7 @@ describe("render", () => {
   describe("Recived the data", () => {
     let wrapper;
     beforeEach(() => {
-      const initialState = { posts: { loading: false } };
+      const initialState = { posts: { loading: false, items:{reviews:[]} } };
       wrapper = setup(initialState);
     });
     test("should render the component without error", () => {

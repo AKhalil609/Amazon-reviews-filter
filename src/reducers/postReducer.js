@@ -78,11 +78,7 @@ export default function(state = initialState, action) {
     case GROUP_REVIEWS:
       return {
         ...state,
-        items: {
-          ...state.items
-        },
-        group: action.payload,
-        loading: false
+        group: action.payload
       };
     default:
       return state;

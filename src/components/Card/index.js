@@ -1,8 +1,7 @@
 import React from "react";
 import "./Card.css";
 import StarPreview from "../StarPreview";
-import store from "../../store"
-import {grouper, formatDate, formatTitle } from "./utils";
+import {formatDate, formatTitle } from "./utils";
 
 
 /**
@@ -13,10 +12,11 @@ import {grouper, formatDate, formatTitle } from "./utils";
  */
 
 export default props => {
-  const { Info } = props;
+  const { Info, group } = props;
+  
   return (
     <div>
-      <div>{grouper(Info.reviewCreated, store.getState().posts.items.reviews[0].reviewCreated)}</div>
+      <div><h4>{group}</h4></div>
       <div className="Card">
         {/* Top Card section */}
         <div className="quickInfo">

@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import {findByTestAttr} from '../../TestUtils/utils';
-import Button from '../../components/Button';
+import Button from '.';
 
 const setup = (props={}) =>{
     const setupProps = { ...props };
